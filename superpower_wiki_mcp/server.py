@@ -7,8 +7,14 @@ import argparse
 import asyncio
 import json
 import os
+from pathlib import Path
 import socket
+import sys
 from typing import Annotated, Any, Dict, List, Optional
+
+_REPO_ROOT = str(Path(__file__).resolve().parent.parent)
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
 
 if os.environ.get("SUPERPOWER_MCP_FORCE_IPV4", "0") == "1":
     _orig_getaddrinfo = socket.getaddrinfo
