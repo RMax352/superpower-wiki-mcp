@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: superpower-wiki-mcp
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: SUPERPOWER_MCP_FORCE_IPV4
+        value: "0"
